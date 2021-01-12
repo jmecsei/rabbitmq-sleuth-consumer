@@ -1,0 +1,22 @@
+spring:
+  # Cloud Stream
+  cloud:
+    stream:
+      rabbit.bindings:
+        ipnMessageConsumer-in-0:
+          consumer:
+            bindingRoutingKey: demo
+      bindings:
+        ipnMessageConsumer-in-0:
+          destination: demo
+          content-type: application/json
+          producer.requiredGroups: demo
+    function:
+      definition: ipnMessageConsumer
+
+  # RabbitMQ
+  rabbitmq:
+    host: 192.168.100.130
+    port: 5672
+    username: financial
+    password: financial
